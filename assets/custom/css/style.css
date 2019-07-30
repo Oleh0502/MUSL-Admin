@@ -1,0 +1,181 @@
+body{
+		padding:0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.musl-logo {
+    height: 45px;
+    width: 165px;
+}
+
+.content {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.musl-login {
+    /* Style for "Login" */
+    width: 72px;
+    height: 36px;
+    color: #4a4a4a;
+    font-size: 29px;
+}
+
+.musl-login-button {
+    /* Style for "Button Bac" */
+    width: 145px;
+    height: 36px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 2px 0 #ffffff;
+    border-radius: 6px;
+    border: 1px solid #979797;
+    background-image: linear-gradient(180deg, #d8d8d8 0%, #b3b3b3 100%);
+}
+
+.musl-menu {
+    width: 1956px;
+    height: 65px;
+}
+
+.musl-link {
+    /* Style for "User Repor" */
+    width: 119px;
+    height: 23px;
+    color: #4a4a4a;
+    font-size: 18px;
+}
+
+.musl-link:hover {
+    /* Style for "User Repor" */
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
+.musl-margin-left {
+    margin-left: 10%;
+}
+
+.musl-margin-right {
+    margin-right: 10%;
+}
+
+.musl-profile-text {
+    color: #9faeb8;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+.musl-email-text {
+    color: #3b7adb;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.musl-deactivate-color:link, .musl-deactivate-color:hover, .musl-deactivate-color:visited {
+    color: #c90017;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.musl-disable-color:link, .musl-disable-color:hover, .musl-disable-color:visited {
+    color: #c90017;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+.musl-enable-color:link, .musl-enable-color:hover, .musl-enable-color:visited {
+    color: darkgreen;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+.musl-activate-color:link, .musl-activate-color:hover, .musl-activate-color:visited {
+    color: darkgreen;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.musl-button-back {
+    width: 145px;
+    height: 36px;
+    border: solid 1px #979797;
+    background: linear-gradient(180deg, #D8D8D8, #B3B3B3);
+    box-shadow: inset 0 2px #ffffff;
+    border-radius: 5px;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.m-l-20{
+	margin-left: 20px;
+}
+.forgot{
+	display: block;
+	font-size: 13px;
+}
+.error{
+	font-size: 11px;
+	color: #ed3237;
+}
+
+.form-control{
+	width: 300px;
+	font-size: 12px;
+}
+
+.musl-login{
+padding: 30px 0 20px 0;
+height: initial!important;
+}
+
+.musl-login-button{
+	font-size: 13px;
+	font-weight: 700;
+	color: #444;
+}
+
+.musl-disable-color:link, .musl-disable-color:hover, .musl-disable-color:visited {
+    color: #ed3237;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 80px;
+    
+}
+
+.musl-enable-color:link, .musl-enable-color:hover, .musl-enable-color:visited {
+    color: #08a208;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 80px;
+}
+
+.input-group.date .input-group-addon {
+    cursor: pointer;
+    padding: 2px;
+    border: 1px solid #ced4da;
+    padding: 0 10px;
+    border-left: 0 solid transparent;
+    color: #ced4da;
+}
+
+.border-r-none{
+	border-right: 0; 
+}
+.report_txt{
+
+}
+.report_txt h5{
+	font-size: 18px;
+}
+.report_txt p{
+	font-size: 14px;
+	color: #afafaf;
+}
+#profile_name::placeholder{
+    color: #ed3237;
+}
