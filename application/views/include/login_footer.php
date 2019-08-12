@@ -13,6 +13,8 @@
 <script src="<?php echo base_url('assets/global/vendor/jquery-notific8/jquery.notific8.min.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/custom.js'); ?>" type="text/javascript"></script>
 
+
+
 <?php if(file_exists('assets/js/'.strtolower($controller).'.js')){ ?>
 
     <script src="<?php echo base_url('assets/js/'.strtolower($controller).'.js'); ?>" type="text/javascript"></script>
@@ -22,5 +24,15 @@
 <script type="text/javascript">
 	$('.datepicker').datepicker({ format: 'yyyy/mm/dd' });
 </script>
+
+<script type="text/javascript" src="<?php echo base_url('assets/global/vendor/img-zoom/jquery.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/global/vendor/img-zoom/jquery.imgzoom.pack.js'); ?>"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.zoom-pic').imgZoom();
+  });
+</script>
+
 </body>
 </html>

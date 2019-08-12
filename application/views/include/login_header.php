@@ -14,6 +14,8 @@
     <link href="<?php echo base_url('assets/global/vendor/jquery-confirm/css/jquery-confirm.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/global/vendor/jquery-notific8/jquery.notific8.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/custom/css/style.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/global/vendor/img-zoom/imgzoom.css'); ?>" rel="stylesheet" type="text/css" />
+
     <style type="text/css">
 	.musl-header {
     display: flex;

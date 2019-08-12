@@ -10,7 +10,7 @@ class User_administrator extends MY_Controller {
     }
 	public function index()
 	{
-	      if(isset($_GET) && !empty($_GET)){
+	    if(isset($_GET) && !empty($_GET)){
             $data = array();
             $where = '';
             if(!isset($_GET['user_id']) || empty($_GET['user_id'])){
@@ -28,27 +28,24 @@ class User_administrator extends MY_Controller {
                 $where = ltrim($where, ' and');
                 $data['result'] = $this->db->select('p.*,u.User_Email,u.User_Id')->from('users as u')->where($where)->join('user_profiles as p','u.User_Id = p.user_id','left')->get()->result_array();
             }else{
-
                 $data['user_details'] = $this->db->select('*')->from('users')->where(array('User_Id'=>$_GET['user_id']))->get()->row_array();
                 $data['profile'] = $this->db->select('*')->from('user_profiles')->where(array('profile_id'=>$_GET['profile_id']))->get()->row_array();
                 $data['profile_details'] = $this->db->select('p.*,u.User_Email,u.Is_Blocked,u.User_Id')->from('users as u')->where(array('u.User_Id'=>$_GET['user_id']))->join('user_profiles as p','u.User_Id = p.user_id','right')->get()->result_array();
-
                 foreach ($data['profile_details'] as $key => $value) {
                     $data['profile_details'][$key]['private_photos'] = $this->common_model->get_data('private_pics',array('profile_id'=>$value['profile_id']));
                 }
             }
-
             $data['profile_url'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}&user_id=";
-            // print_r($result);die;
             $this->load->view('include/login_header');
             $this->load->view('user_administrator',$data);
             $this->load->view('include/login_footer');
-          }else{
+            }
+            else
+            {
     		$this->load->view('include/login_header');
     		$this->load->view('user_administrator');
     		$this->load->view('include/login_footer');
         }
-       
 	}
 
      public function activate_account()

@@ -374,6 +374,7 @@ INSERT INTO `ci_private_pics` (`private_pic_id`, `profile_id`, `private_pic_name
 DROP TABLE IF EXISTS `ci_profile_options`;
 CREATE TABLE `ci_profile_options` (
   `option_id` int(11) NOT NULL AUTO_INCREMENT,
+  `option_title` varchar(100) NOT NULL,
   `option_type` enum('i_am','i_enjoy','i_hang_out_at','ethnicity','relationship_status','work','hoping_for','my_type','safety_practice','sex_role','hankies','when_where','friend') NOT NULL,
   `created_on` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
@@ -383,6 +384,17 @@ CREATE TABLE `ci_profile_options` (
   PRIMARY KEY (`option_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `ci_profile_options` (`option_id`, `option_title`, `option_type`, `created_on`, `created_by`, `is_deleted`, `deleted_on`, `modified_on`) VALUES
+(1,	'New Friends',	'friend',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(2,	'Happy Hours Dinner',	'friend',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(3,	'Marriage',	'hoping_for',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(4,	'Just Dating',	'hoping_for',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(5,	'Guy Next Door',	'my_type',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(6,	'All-American',	'my_type',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(7,	'Human',	'ethnicity',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(8,	'Asian',	'ethnicity',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(9,	'Condoms',	'safety_practice',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00'),
+(10,	'Prep',	'safety_practice',	'2019-08-04 14:18:33',	0,	'0',	'0000-00-00 00:00:00',	'0000-00-00 00:00:00');
 
 DROP TABLE IF EXISTS `ci_profile_visitors`;
 CREATE TABLE `ci_profile_visitors` (
@@ -412,6 +424,22 @@ CREATE TABLE `ci_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS `ci_tokens`;
+CREATE TABLE `ci_tokens` (
+  `token_id` int(11) NOT NULL AUTO_INCREMENT,
+  `token_code` varchar(250) NOT NULL,
+  `device_type` enum('android','ios') NOT NULL,
+  `device_token` text NOT NULL,
+  `created_on` datetime NOT NULL,
+  `deleted_on` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `is_deleted` enum('0','1') NOT NULL,
+  PRIMARY KEY (`token_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `ci_tokens` (`token_id`, `token_code`, `device_type`, `device_token`, `created_on`, `deleted_on`, `user_id`, `is_deleted`) VALUES
+(1,	'62CBis',	'android',	'rwerwer',	'2019-07-20 04:00:37',	'0000-00-00 00:00:00',	53,	'0');
+
 DROP TABLE IF EXISTS `ci_users`;
 CREATE TABLE `ci_users` (
   `User_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -439,7 +467,8 @@ INSERT INTO `ci_users` (`User_Id`, `User_Email`, `User_Type`, `User_Password`, `
 (1,	'admin@gmail.com',	'admin',	'e10adc3949ba59abbe56e057f20f883e',	'+14804634279',	'admin',	'',	'',	'',	'0',	'0',	'2017-05-25 16:50:00',	'2018-09-12 20:19:55',	'0000-00-00 00:00:00',	'avatar-1.jpg',	'1',	'0',	0),
 (47,	'user@gmail.com',	'user',	'e10adc3949ba59abbe56e057f20f883e',	'+14804634279',	'admin',	'',	'',	'',	'0',	'0',	'2019-07-25 16:50:00',	'2018-09-12 20:19:55',	'0000-00-00 00:00:00',	'avatar-4.jpg',	'0',	'0',	0),
 (48,	'michael@gmail.com',	'user',	'e10adc3949ba59abbe56e057f20f883e',	'+14804634279',	'admin',	'',	'',	'',	'0',	'0',	'2017-05-25 16:50:00',	'2018-09-12 20:19:55',	'0000-00-00 00:00:00',	'avatar-6.jpg',	'0',	'0',	0),
-(49,	'robinson@gmail.com',	'user',	'e10adc3949ba59abbe56e057f20f883e',	'+14804634279',	'admin',	'',	'',	'',	'0',	'0',	'2017-05-25 16:50:00',	'2018-09-12 20:19:55',	'0000-00-00 00:00:00',	'avatar-9.jpg',	'0',	'0',	0);
+(49,	'robinson@gmail.com',	'user',	'e10adc3949ba59abbe56e057f20f883e',	'+14804634279',	'admin',	'',	'',	'',	'0',	'0',	'2017-05-25 16:50:00',	'2018-09-12 20:19:55',	'0000-00-00 00:00:00',	'avatar-9.jpg',	'0',	'0',	0),
+(55,	'keentesting77@gmail.com',	'user',	'e10adc3949ba59abbe56e057f20f883e',	'',	'',	'',	'',	'',	'0',	'0',	'2019-08-01 05:10:49',	'2019-08-01 05:10:49',	'0000-00-00 00:00:00',	'',	'0',	'1',	0);
 
 DROP TABLE IF EXISTS `ci_user_profiles`;
 CREATE TABLE `ci_user_profiles` (
@@ -508,4 +537,4 @@ CREATE TABLE `ci_user_visibility` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- 2019-07-29 18:04:09
+-- 2019-08-06 08:18:50

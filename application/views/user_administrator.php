@@ -92,8 +92,7 @@
                         <div class="musl-profile-text"><?php echo ucfirst($value['profile_type']); ?></div>
                         <?php echo $value['profile_name']; ?>
                     </div>
-                    <div class="col-md-3"><img src="<?php echo base_url('assets/images/profile_pics/').$value['profile_pic']; ?>"
-                                               style="width: 80px; height: 80px"></div>
+                    <div class="col-md-3"><img src="<?php echo base_url('assets/images/profile_pics/').$value['profile_pic']; ?>" style="width: 80px; height: 80px"></div>
                     <div class="col-md-3">
                         <button data-toggle="modal" data-target="#photoModal-<?php echo $value['profile_id']; ?>"
                                 style="padding: 0; border-radius: 10px">
