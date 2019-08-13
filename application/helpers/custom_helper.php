@@ -31,52 +31,13 @@ function GetProfilePic()
 
 function get_date_format($date)
 {
-
     if ($date == '0000-00-00 00:00:00') {
-
         return "N/A";
-
     } else {
-
         $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date);
-
         return $newDateString = $myDateTime->format('d-m-Y');
-
     }
-
 }
-
-function get_youtube_embed($Video_link, $width = '640', $height = '360')
-{
-
-    $regex_pattern = "/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/";
-    $match;
-
-    if (preg_match($regex_pattern, $Video_link, $match)) {
-        $id = $match[4];
-    } else {
-        return false;
-    }
-
-    /* $link = preg_match('/[\?\&]v=([^\?\&]+)/', $Video_link, $matches);
-    $id                                   = $matches[1];*/
-    $width                = $width;
-    $height               = $height;
-    $data['Video_Iframe'] = '<iframe class="dt-youtube" width="' . $width . '" height="' . $height . '" src="//www.youtube.com/embed/' . $id . '" frameborder="0" allowfullscreen></iframe>';
-    $data['Video_Image']  = "https://img.youtube.com/vi/" . $id . "/hqdefault.jpg";
-    return $data;
-}
-function curl_get($url)
-{
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-    $return = curl_exec($curl);
-    curl_close($curl);
-    return $return;
-}
-
 
 function get_formatted_items($items)
 {
@@ -90,27 +51,6 @@ function get_formatted_items($items)
     return $return;
 }
 
-function get_vimeo_embed($Video_link, $width = '640', $height = '360')
-{
-
-    $oembed_endpoint      = 'http://vimeo.com/api/oembed';
-    $video_url            = $Video_link;
-    $json_url             = $oembed_endpoint . '.json?url=' . rawurlencode($video_url) . '&width=640';
-    $xml_url              = $oembed_endpoint . '.xml?url=' . rawurlencode($video_url) . '&width=640';
-    $oembed               = simplexml_load_string(curl_get($xml_url));
-    $data['Video_Iframe'] = $oembed->html;
-    $data['Video_Image']  = $oembed->thumbnail_url;
-    return $data;
-}
-
-function validate_vimeo_link($Video_link){
-$output_array;
-if (preg_match("/https?:\/\/(?:www\.)?vimeo\.com\/\d{8}/", $Video_link, $output_array)) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 function get_date_format_without_min($date)
 {
@@ -209,44 +149,26 @@ function randomLink()
 
 function search_permission($id, $array)
 {
-
     foreach ($array as $key => $val) {
-
         if ($val['Perm_Id'] === $id) {
-
             return true;
-
         }
-
     }
-
     return false;
-
 }
 
 function search_checked($id, $array, $keyword)
 {
-
     foreach ($array as $key => $val) {
-
         if ($val['Perm_Id'] === $id) {
-
             if ($val[$keyword] == '1') {
-
                 return true;
-
             } else {
-
                 return false;
-
             }
-
         }
-
     }
-
     return false;
-
 }
 
 //Send Mail here
@@ -309,106 +231,4 @@ function image_exist($image)
 
     }
 
-}
-
-function doc_exist($image)
-{
-
-    if (!file_exists($image)) {
-
-        return base_url(DEFAULT_DOCUMENT);
-
-    } else {
-
-        return base_url($image);
-
-    }
-
-}
-
-function get_current_bal($id)
-{
-
-    $CI = &get_instance();
-
-    $sql = $CI->db->where('Party_Id', $id)->get('party');
-
-    if ($sql->num_rows() > 0) {
-
-        return $sql->row()->Balance;
-
-    } else {
-
-        return false;
-
-    }
-
-}
-
-function get_compnies()
-{
-
-    $CI = &get_instance();
-
-    $where = array('Is_Deleted' => '0');
-
-    return $CI->common_model->get_data('company', $where);
-
-}
-
-function get_financialyear()
-{
-
-    $CI = &get_instance();
-
-    $where = array('Year_Id!=' => '0');
-
-    return $CI->common_model->get_data('years', $where);
-
-}
-
-function get_wherein($table, $coulumn, $array_items)
-{
-
-    $CI = &get_instance();
-
-    return $CI->common_model->select_where_in($table, $coulumn, $array_items);
-
-}
-
-function get_tags_by_comma($tags_array, $option = '')
-{
-    $tags_array = explode(',', $tags_array);
-    $ci         = &get_instance();
-    $result     = $ci->common_model->select_where_in('tags', 'Tag_Id', $tags_array);
-
-    if ($option == 'label') {
-        $aa = '';
-        foreach ($result as $key => $value) {
-            $aa .= '<a href="javascript:;" class="btn blue btn-outline sbold btn-xs">' . $value['Tag_Name'] . ' </a>';
-        }
-        return $aa;
-    } else {
-        return $result;
-    }
-}
-
-function check_package($array,$match){
-	$status =  false;
-	if(!empty($array)){
-		foreach($array as $value){
-			if($value['P_Type']=='All'){
-				$status = true;
-			} else{
-				if($match==$value['Package_Id']){
-					$status = true;
-				}
-			}
-		}
-	}
-	if($status){
-		return true;
-	} else{
-		return false;
-	}
 }

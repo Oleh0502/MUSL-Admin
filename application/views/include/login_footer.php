@@ -11,13 +11,13 @@
 <script src="<?php echo base_url('assets/global/js/Config.js'); ?>"></script>
 <script src="<?php echo base_url('assets/global/vendor/jquery-confirm/js/jquery-confirm.js'); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('assets/global/vendor/jquery-notific8/jquery.notific8.min.js'); ?>" type="text/javascript"></script>
-<script src="<?php echo base_url('assets/js/custom.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/custom/js/custom.js'); ?>" type="text/javascript"></script>
 
 
 
-<?php if(file_exists('assets/js/'.strtolower($controller).'.js')){ ?>
+<?php if(file_exists('assets/custom/js/'.strtolower($controller).'.js')){ ?>
 
-    <script src="<?php echo base_url('assets/js/'.strtolower($controller).'.js'); ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/custom/js/'.strtolower($controller).'.js'); ?>" type="text/javascript"></script>
     
 <?php } ?>
 

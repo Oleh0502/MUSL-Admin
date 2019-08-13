@@ -1,6 +1,6 @@
 <?php 
 
-$header_logo = base_url('assets/images/ari_logo.png');
+$header_logo = base_url('assets/images/logo.png');
 
 ?>
 
@@ -48,7 +48,7 @@ tr{
 
 			<tr style="border:1px solid #eee; display:block; text-align:center;">
 
-				<td style="background:#fff; width:100%; display: block; padding:15px 0px;">
+				<td style="background:#30302f; width:100%; display: block; padding:15px 0px;">
 
 					<?php
 

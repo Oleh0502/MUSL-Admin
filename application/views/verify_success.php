@@ -6,8 +6,8 @@
   <p>
     Having trouble? <a href="<?php echo CONTACT_PAGE_LINK; ?>">Contact us</a>
   </p>
-  <p class="lead">
+  <!-- <p class="lead">
     <a class="btn btn-primary btn-sm" href="<?php echo base_url('login'); ?>" role="button">Continue to login</a>
-  </p>
+  </p> -->
 </div>
 <?php get_footer(); ?>

@@ -16,6 +16,10 @@ $lang['Deactivate_label'] = "De-Activate";
 
 
 
+$lang['common_error_parameters']                      = "Invalid Parameters.";
+$lang['token_mismatched']                      = "Invalid user token.";
+$lang['common_success']                      = "Successfully done.";
+
 //Error Messages Goes here
 
 $lang['login_error']                      = "Your session expired. Please login agian.";

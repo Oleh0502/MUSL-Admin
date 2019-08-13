@@ -8,6 +8,7 @@ class User_reporting extends MY_Controller {
         parent::__construct();
         $this->auth->is_login();
     }
+   //user reporting page content  
 	public function index()
 	{
 			if(isset($_POST) && !empty($_POST)){
@@ -19,11 +20,11 @@ class User_reporting extends MY_Controller {
             $data['friend'] = $this->common_model->CountByCondition('user_profiles','(created_on >= "'.date('Y-m-d H:i:s',strtotime($_POST['start_date'])).'" && created_on <= "'.date('Y-m-d H:i:s',strtotime($_POST['end_date'])).'" && profile_type = "friend")');
             $data['flirt'] = $this->common_model->CountByCondition('user_profiles','(created_on >= "'.date('Y-m-d H:i:s',strtotime($_POST['start_date'])).'" && created_on <= "'.date('Y-m-d H:i:s',strtotime($_POST['end_date'])).'" && profile_type = "flirt")');
             $data['fun'] = $this->common_model->CountByCondition('user_profiles','(created_on >= "'.date('Y-m-d H:i:s',strtotime($_POST['start_date'])).'" && created_on <= "'.date('Y-m-d H:i:s',strtotime($_POST['end_date'])).'" && profile_type = "fun")');
-           $data['user_session'] = 0;
-           $data['friend_session'] = 0;
-           $data['flirt_session'] = 0;
-           $data['fun_session'] = 0;
-           $data['post_data'] = $_POST;
+             $data['user_session'] = 0;
+             $data['friend_session'] = 0;
+             $data['flirt_session'] = 0;
+             $data['fun_session'] = 0;
+             $data['post_data'] = $_POST;
 
 
                

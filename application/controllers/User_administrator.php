@@ -8,6 +8,7 @@ class User_administrator extends MY_Controller {
         parent::__construct();
         $this->auth->is_login();
     }
+    //User Administartor page content
 	public function index()
 	{
 	    if(isset($_GET) && !empty($_GET)){
@@ -48,7 +49,8 @@ class User_administrator extends MY_Controller {
         }
 	}
 
-     public function activate_account()
+    //Activate/Deactivate account
+    public function activate_account()
     {
         if ($this->input->is_ajax_request())
         {
@@ -95,25 +97,6 @@ class User_administrator extends MY_Controller {
         header('Content-Type: application/json');
         exit(json_encode($notification));
     }
-
-    public function List()
-    {
-        
-            $this->load->view('include/login_header');
-            $this->load->view('user_administrator_list');
-            $this->load->view('include/login_footer');
-       
-    }
-
-    public function profile($profile_id)
-    {
-        
-            $this->load->view('include/login_header');
-            $this->load->view('user_administrator_profile');
-            $this->load->view('include/login_footer');
-       
-    }
-
 
      
 }
